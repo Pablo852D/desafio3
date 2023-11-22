@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs'
 
     class ProductManager {
     constructor(filePath) {
@@ -15,16 +15,31 @@ const fs = require('fs');
         }
     }
 
+    getProducts(limit) {
+        if (limit) {
+            return this.products.slice(0, parseInt(limit));
+        } else {
+            return this.products;
+        }
+    }
+
     saveProducts() {
         fs.writeFileSync(this.path, JSON.stringify(this.products, null, 2), 'utf8');
     }
 
     addProduct(newProduct) {
-        newProduct.id = this.generateUniqueId();
+        newProduct.id = uuidv4(); // Usar UUID para asegurar unicidad
         this.products.push(newProduct);
         this.saveProducts();
         return newProduct;
     }
+
+    /*addProduct(newProduct) {
+        newProduct.id = this.generateUniqueId();
+        this.products.push(newProduct);
+        this.saveProducts();
+        return newProduct;
+    }*/
 
     generateUniqueId() {
         // Generar un ID único basado en la longitud actual de la lista de productos
@@ -62,4 +77,4 @@ const fs = require('fs');
     }
 }
 
-module.exports = ProductManager;
+export default ProductManager;

@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Pasacables",
+    "description": "Pasacables con alma de acero de 5m",
+    "price": 3500,
+    "thumbnail": "path/to/product1.jpg",
+    "code": "P1",
+    "stock": 15,
+    "id": 1
+  },
+  {
+    "title": "Pelacables",
+    "description": "Pelacables hasta 6mm",
+    "price": 8000,
+    "thumbnail": "path/to/product2.jpg",
+    "code": "P2",
+    "stock": 20,
+    "id": 2
+  }
+]
