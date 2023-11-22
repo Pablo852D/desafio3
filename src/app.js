@@ -20,14 +20,15 @@ app.get('/products', (req, res) => {
 
 // Endpoint para obtener un producto por su ID
 app.get('/products/:pid', (req, res) => {
-  const productId = req.params.pid;
-  const products = productManager.getProductById(productId);
+  const productId = parseInt(req.params.pid);
+  const product = productManager.getProductById(productId);
 
-  if (products) {
-      res.json(products);
+  if (product) {
+    res.json(product);
   } else {
-      res.status(404).json({ error: 'Producto no encontrado' });
+    res.status(404).json({ error: 'Producto no encontrado' });
   }
+
 });
 
 
