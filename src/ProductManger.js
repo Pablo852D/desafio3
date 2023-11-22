@@ -27,19 +27,13 @@ import fs from 'fs'
         fs.writeFileSync(this.path, JSON.stringify(this.products, null, 2), 'utf8');
     }
 
-    addProduct(newProduct) {
-        newProduct.id = uuidv4(); // Usar UUID para asegurar unicidad
-        this.products.push(newProduct);
-        this.saveProducts();
-        return newProduct;
-    }
 
-    /*addProduct(newProduct) {
+    addProduct(newProduct) {
         newProduct.id = this.generateUniqueId();
         this.products.push(newProduct);
         this.saveProducts();
         return newProduct;
-    }*/
+    }
 
     generateUniqueId() {
         // Generar un ID único basado en la longitud actual de la lista de productos
